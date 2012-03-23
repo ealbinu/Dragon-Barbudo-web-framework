@@ -1,0 +1,40 @@
+/*  Dragon Barbudo - www.dragonbarbudo.com  */
+
+
+/* TEAM */
+
+	WEB DESIGNER : 
+	Contact:  [at]dragonbarbudo.com
+	Twitter: @
+	Location: Mexico city
+	
+	
+	WEB DEVELOPER : 
+	Contact: [at]dragonbarbudo.com
+	Twitter: @
+	Location: Mexico city
+	
+	
+	CONTENT DEVELOPER : 
+	Contact: [at]dragonbarbudo.com
+	Twitter: @
+	Location: Mexico city
+	
+	
+	FRAME DEVELOPER : Albin Rodriguez
+	Contact: albin[at]dragonbarbudo.com
+	Twitter: @ealbinu
+	Location: Mexico city
+
+
+/* SITE */
+
+	Last update: 
+	Standards: HTML5, CSS3, PHP, JAVASCRIPT
+	Components: JQuery  
+	Software: OSX Lion, Coda, Adobe CS, Sequel Pro, MAMP, Less, iTunes
+	Inspirational: html5boilerplate, 960gs 
+
+
+
+/* http://humanstxt.org/ */

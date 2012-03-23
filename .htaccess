@@ -1,0 +1,12 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteRule inicio index
+
+ErrorDocument 404: http://dragonbarbudo.com
+
+
+BrowserMatch MSIE ie
+Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie

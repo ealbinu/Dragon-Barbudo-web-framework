@@ -1,0 +1,54 @@
+*{margin: 0; padding: 0;} *:focus{outline: none;}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}audio,canvas,video{display:inline}html{font-size:100%}body{font-size:13px;line-height:1.231;margin:0}body,button,input,select,textarea{font-family:sans-serif;color:#222}a{color:#07e}a:visited{color:#551a8b}a:hover{color:#0ae}a:focus{outline:thin dotted}a:hover,a:active{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}blockquote{margin:1em 40px}dfn{font-style:italic}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}ins{background:#ff9;color:#000;text-decoration:none}mark{background:#ff0;color:#000;font-style:italic;font-weight:700} pre,code,kbd,samp{font-family:monospace, monospace;font-size:1em}pre{white-space:pre-wrap}q{quotes:none}q:before,q:after{content:none}small{font-size:85%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}ul,ol{margin: 0;padding:0;}dd{margin:0 0 0 40px}nav ul,nav ol{list-style:none;list-style-image:none;margin:0;padding:0}img{border:0;vertical-align:middle}svg:not(:root){overflow:hidden}fieldset{border:0;margin:0;padding:0}legend{border:0;margin-left:-7px;padding:0}button,input,select,textarea{font-size:100%;vertical-align:middle;margin:0}button,input{line-height:normal;overflow:visible}table button,table input{overflow:auto}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}input:invalid,textarea:invalid{background-color:#f0dddd}table{border-collapse:collapse;border-spacing:0}td{vertical-align:top}.ir{display:block;border:0;text-indent:-999em;overflow:hidden;background-color:transparent;background-repeat:no-repeat;text-align:left;direction:ltr}.hidden{display:none!important;visibility:hidden}.visuallyhidden{border:0;clip:rect(0000);height:1px;overflow:hidden;position:absolute;width:1px;margin:-1px;padding:0} .visuallyhidden.focusable:active,.visuallyhidden.focusable:focus{clip:auto;height:auto;overflow:visible;position:static;width:auto;margin:0}.invisible{visibility:hidden} .clearfix:before,.clearfix:after{content:"";display:table}.clearfix:after{clear:both}audio:not([controls]),[hidden],.ir br{display:none}::-moz-selection,::selection{background:#fe57a1;color:#fff}figure,form{margin:0}label,button,input[type=button],input[type=reset],input[type=submit]{cursor:pointer}
+@media print{*{background:transparent!important;color:#000!important}a,a:visited{text-decoration:underline}a[href]:after{content:" (" attr(href) ")"}abbr[title]:after{content:" (" attr(title) ")"}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100%!important}@page{margin:.5cm}p,h2,h3{orphans:3;widows:3}h2,h3{page-break-after:avoid}}
+
+// Rounded Corners
+.rounded(@radius:4px){
+  -moz-border-radius: @radius; // FF 1+
+  -webkit-border-radius: @radius; // FF 1+
+  border-radius: @radius; // Opera 10.5, IE 9, Saf5, Chrome
+  behavior: url(PIE.htc);
+}
+
+// Top-to-Bottom Gradient
+.gradient(@start, @end){
+  background: (@start + @end) / 2; // Non CSS3 browsers get the average color
+  background-image: -moz-linear-gradient(top,  @start, @end); // FF 3.6
+  background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end)); // Safari 4+, Chrome
+  background-image: -webkit-linear-gradient(top, @start, @end); // Chrome 10+, Safari 5.1+
+  background-image: -o-linear-gradient(top, @start, @end); // Opera 11.10+
+  background-image: linear-gradient(top, @start, @end); // CSS3
+  filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr=%d, endColorstr=%d)", @start, @end); // IE6 & 7
+  -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr=%d, endColorstr=%d)", @start, @end); // IE8
+  background-image: -ms-linear-gradient(top, @start, @end); // IE10
+  behavior: url(PIE.htc);
+}
+
+
+// Drop shadow
+.shadow(@params:0px 0px 6px #000){
+  -moz-box-shadow: @params; // FF3.5+
+  -webkit-box-shadow: @params; // Saf3.0+, Chrome
+  box-shadow: @params; // Opera 10.5, IE9+, Chrome 10+
+  behavior: url(PIE.htc);
+}
+
+// Transition
+.transition(@params){
+  -moz-transition: @params; // FF4+
+  -o-transition: @params; // Opera 10.5+
+  -webkit-transition: @params; // Safari 3.2+, Chrome
+  -ms-transition: @params; // IE10
+  transition: @params; // CSS3
+  behavior: url(PIE.htc);
+}
+
+//Inset Text
+.inset(@c){
+  color: @c;
+  text-shadow: 0px 1px 0px @c*1.8;
+  behavior: url(PIE.htc);
+}
+
+// Layouting
+.test{ background: aqua; overflow: visible; }

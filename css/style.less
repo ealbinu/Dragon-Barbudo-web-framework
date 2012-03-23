@@ -1,0 +1,32 @@
+@import "cssresetframe";
+
+
+/*	*	*	*	*	*	*	*	*	GRID 4 LESS		*	*	*	*	*	*	*	*/
+@columns: 16;
+@width: 960px;
+@gutt: 10px;
+@w:@width/@columns;
+.container(@padd:0px) { margin: 0 auto; width: @width; padding-top: @padd; padding-bottom: @padd; }
+.grid(@gu:@gutt) { display: inline; float: left; position: relative; margin-left: @gu; margin-right: @gu; }
+.alpha { margin-left: 0;  }
+.omega { margin-right: 0; }
+.grid_(@num, @pushpull:0, @align:left, @gutter:@gutt){ .grid(@gutter); width: (@w*@num)-(@gutter*2); left: @w*@pushpull; text-align: @align;  }
+.cont_(@num, @pushpull:0, @align:left, @gutter:@gutt){ .grid(@gutter); width: (@w*@num); left: @w*@pushpull; text-align: @align;  margin:0;}
+.clear { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; }
+.tester{ position: fixed; top: 0; background: #aaa; height: 100%;width: @width;left: 50%;margin-left: -(@width/2);z-index: 1; opacity: 0.2; div { .grid_(1); height: 100%; background: #eee; }}
+/*	*	*	*	*	*	*	*	*	end		*	*	*	*	*	*	*	*/
+
+/*	COLORES	*/
+@c1: #f5f5f5;
+@c2: #222;
+
+
+
+
+/*	TESTER	*/
+.tester{
+	visibility: visible ;
+}
+/*	*	*	*	*	*	*	*	*	MAIN CSS		*	*	*	*	*	*	*	*/
+
+
