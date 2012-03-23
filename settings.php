@@ -1,8 +1,8 @@
 <? 
-	$u = "http://localhost:8888/pimpinvoice";
-	#$u = "http://resaltalo.com";
+	$u = "http://localhost:8888/";
+	#$u = "http://";
 	// TITULO
-	$titulo = "Pimp Invoice";
+	$titulo = "";
 	// META's
 	$descripcion = "";
 	$keywords = "" ;
