@@ -20,7 +20,7 @@
 <link rel="author" href="humans.txt" />
 
 <!-- Google Webfonts -->
-<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+
 
 <!-- CSS -->
 <? foreach($css as $c){ ?>
@@ -33,7 +33,9 @@
 <![endif]-->
 
 <!-- JAVASCRIPT -->
+<? if($gmaps){ ?>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<? } ?>
 <script type="text/javascript" src="js/jscripts.js<? echo d($b); ?>"></script>
 
 

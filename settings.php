@@ -17,7 +17,8 @@
 	// MOBILE
 	$mobile = 1;
 	
-
+	//Google maps load?
+	$gmaps = 0;
 
 /*	*	*	 DEBUG	*	*	 */
 	

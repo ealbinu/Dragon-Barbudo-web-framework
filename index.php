@@ -9,7 +9,7 @@
 
 <!--Header-->		
 <header>
-
+<? echo $navigation; ?>
 </header>
 
 </body>
