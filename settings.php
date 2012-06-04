@@ -22,6 +22,7 @@
 
 	//Analytics id
 	$analytics = '';
+
 /*	*	*	 DEBUG	*	*	 */
 	
 	/* TESTER */
