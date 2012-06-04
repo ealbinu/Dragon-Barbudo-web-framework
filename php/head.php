@@ -29,7 +29,7 @@
 
 <!-- ie HACK -->
 <!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="js/html5shiv.js"></script>
 <![endif]-->
 
 <!-- JAVASCRIPT -->
