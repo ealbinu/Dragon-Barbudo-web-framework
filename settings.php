@@ -20,6 +20,8 @@
 	//Google maps load?
 	$gmaps = 0;
 
+	//Analytics id
+	$analytics = '';
 /*	*	*	 DEBUG	*	*	 */
 	
 	/* TESTER */
