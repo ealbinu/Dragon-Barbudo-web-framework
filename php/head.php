@@ -22,8 +22,13 @@
 <!-- Google Webfonts -->
 
 
-<!-- CSS -->
-<? foreach($css as $c){ ?>
+<!-- CSS/LESS-->
+<? 
+include('lessc.inc.php');
+foreach($less as $l){ 
+	lessc::ccompile('css/'.$l.'.less', 'css/'.$l.'.css');
+} 
+foreach($css as $c){ ?>
 <link style="text/css" href="css/<? echo $c.d($b); ?>" rel="stylesheet" />
 <? } ?>
 

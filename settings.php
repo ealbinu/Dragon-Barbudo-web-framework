@@ -34,6 +34,8 @@
 
 
 
+	// LESS
+	$less = array("style", "mobile");
 	// CSS
 	$css = array("style.css", "mobile.css");
 	// JS
