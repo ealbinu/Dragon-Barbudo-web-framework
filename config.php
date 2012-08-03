@@ -1,5 +1,6 @@
 <?php
 	include('settings.php');
+	include('php/Inputs.php');
 
 /*	*	*	 SETUP	*	*	 */
 	
@@ -14,7 +15,12 @@
 	
 	
 	// NAV
-	$nav = array('inicio');
+	$nav = array(
+				'Inicio',
+				'Productos|Seccion',
+				'Servicios|Seccion|Seccion',
+				'Contacto'
+				);
 	$navigation="";
 	
 	
@@ -83,12 +89,29 @@
 	// GENERATE NAVIGATION...
 	#ul [navigation ul becomes $navigation]
 	if(count($nav) > 0){
-		$navigation.='<ul>';	
+		$navigation.='<ul class="level1">';	
 		foreach($nav as $n){ 
-			$navigation.= "<li>".cLinks($n)."</li>";
+			
+			if(strpos($n,'|')){
+				$innernav = explode('|',$n);
+				$navigation.= "<li class='level1' id='nav_".cname($innernav[0])."'>".cLinks($innernav[0],'level1')."<ul class='level2'>";
+				for($i=1;$i<count($innernav);$i++){
+					$navigation.= "<li class='level2'>".cLinks($innernav[$i],'level2',$innernav[0])."</li>";
+				}
+				$navigation.="</li></ul>";
+			} else {
+				$navigation.= "<li id='nav_".cname($n)."'>".cLinks($n)."</li>";
+			};
+			
 		}
 		$navigation.='</ul>';
 	}
+	
+	
+	
+	
+	
+
 	# set active section
 	function active($u){
 		if(strtolower($u) == "inicio"){ $u = "index"; }
@@ -102,59 +125,25 @@
 	}
 	#Convertir Strings en versiones 100% leíbles ["ÑÁ ú" en "na-u"] usado en nombres de páginas
 	function cname($name){
-		$special = array('á', 'é','í','ó','ú','Á', 'É','Í','Ó','Ú', ' ', '?', '¿', 'ñ', 'Ñ', '"');
-		$vowels = array('a', 'e','i','o','u','A', 'E','I','O','U', '-', '', '', 'n', 'N','');
+		$special = array('á', 'é','í','ó','ú','Á', 'É','Í','Ó','Ú', ' ', '¿', 'ñ', 'Ñ', '"', '\?');
+		$vowels = array('a', 'e','i','o','u','A', 'E','I','O','U', '-', '', 'n', 'N','','?');
 		$final = str_replace($special, $vowels, $name);
 		return strtolower($final);
 	}
 	# CREATE A LINK PARSING STRING WITH cname() SETS active() AND ADDS THE STRING BETWEEN <a> & </a>
-	function cLinks($name, $class=''){	
+	function cLinks($name, $class='',$inner=null){	
 		$cl;
 		if($class){
 			$cl = ' '.$class.'';
 		}
 		if($inner){
-			return '<a href="'.cname($inner."/".$name).'" class="'.active(cname($name)).$cl.'">'.$name.'</a>';
+			return '<a href="'.cname($inner."\?in=".$name).'" class="'.active(cname($name)).$cl.'">'.$name.'</a>';
 		} else {
 			return '<a href="'.cname($name).'" class="'.active(cname($name)).$cl.'">'.$name.'</a>';
 		}
 	}
 	
 	
-	
-	# CREATE MULTIDIMENSIONAL NAVIGATION LINKS
-	function createNav($arr){
-		global $navigation;
-		$navigation.="\n".'<ul class="level1">'."\n";
-		foreach($arr as $a){
-			if(is_array($a)){
-				$navigation.= "\t"."<li>".cLinks($a[0],'levels')."\n";
-				$navigation.="\t\t".'<ul class="level2">'."\n";
-				foreach($a[1] as $a1){
-					if(is_array($a1)){
-						$navigation.= "\t\t\t".'<li><a href="'.cname($a[0]).'?p='.cname($a1[0]).'" class="levels2">'.$a1[0].'</a>'."\n";
-						$navigation.="\t\t\t\t"."<ul>"."\n";
-						
-						foreach($a1[1] as $a2){
-							$navigation.= "\t\t\t\t\t".'<li><a href="'.cname($a[0]).'?p='.cname($a1[0]).'&p2='.cname($a2).'">'.$a2.'</a></li>'."\n";
-						}
-						$navigation.="\t\t\t\t".'<li><a href="#" class="return"><</a></li>'."\n";
-						$navigation.="\t\t\t\t"."</ul>"."\n";
-					} else {
-						$navigation.= "\t\t\t".'<li><a href="'.cname($a[0]).'?p='.cname($a1).'" >'.$a1.'</a></li>'."\n";
-					}
-					
-					$navigation.="\t\t\t"."</li>"."\n";
-				}
-				$navigation.="\t\t\t".'<li><a href="#" class="return"><</a></li>'."\n";
-				$navigation.="\t\t"."</ul>"."\n";
-				
-			} else {
-				$navigation.= "\t"."<li>".cLinks($a,'')."</li>"."\n";
-			}
-		}
-		$navigation.="</ul>";
-	}
 	
 	/*	*	*	*	*	*	*	*	*	*	*	FUNCTIONS YOU SHOULD NOT TOUCH *	*	*	*	*	*	*	*	*	*	*	*	*/
 	
